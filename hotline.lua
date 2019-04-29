@@ -4,6 +4,10 @@ _.is_nil = function (value)
     return value == nil
 end
 
+_.is_number = function (value)
+    return type(value) == 'number'
+end
+
 _.is_string = function (value)
     return type(value) == 'string'
 end
