@@ -1,5 +1,13 @@
 local _ = {}
 
+_.aggregate = function (...)
+    if select('#', ...) >= 2 then
+        return { ... }
+    end
+
+    return ...
+end
+
 _.is_boolean = function (value)
     return type(value) == 'boolean'
 end
