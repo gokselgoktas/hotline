@@ -1,5 +1,9 @@
 local _ = {}
 
+_.is_boolean = function (value)
+    return type(value) == 'boolean'
+end
+
 _.is_function = function (value)
     return type(value) == 'function'
 end
