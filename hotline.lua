@@ -8,6 +8,10 @@ _.aggregate = function (...)
     return ...
 end
 
+_.get_iterator = function (...)
+    return pairs(_.tabulate(_.aggregate(...)))
+end
+
 _.is_boolean = function (value)
     return type(value) == 'boolean'
 end
