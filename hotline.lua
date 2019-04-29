@@ -19,6 +19,16 @@ _.discard = function (...)
     return nil
 end
 
+_.filter = function (table, subroutine, ...)
+    local image = {}
+
+    for key, value in _.get_iterator(table) do
+        if _.apply(subroutine, value, key, ...) == true then image[key] = value end
+    end
+
+    return image
+end
+
 _.get_identity = function (...)
     return ...
 end
