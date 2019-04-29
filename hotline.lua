@@ -61,6 +61,12 @@ _.is_table = function (value)
     return type(value) == 'table'
 end
 
+_.iterate = function (table, subroutine, ...)
+    for key, value in _.get_iterator(table) do
+        _.apply(subroutine, value, key, ...)
+    end
+end
+
 _.map = function (table, subroutine, ...)
     local image = {}
 
