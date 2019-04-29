@@ -8,6 +8,10 @@ _.aggregate = function (...)
     return ...
 end
 
+_.discard = function (...)
+    return nil
+end
+
 _.get_identity = function (...)
     return ...
 end
