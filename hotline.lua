@@ -8,6 +8,13 @@ _.aggregate = function (...)
     return ...
 end
 
+_.apply = function (subroutine, ...)
+    local subroutine = subroutine or _.get_identity
+    if _.is_function(subroutine) == false then return nil end
+
+    return subroutine(...)
+end
+
 _.discard = function (...)
     return nil
 end
