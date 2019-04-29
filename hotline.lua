@@ -19,6 +19,16 @@ _.discard = function (...)
     return nil
 end
 
+_.fill = function (table, value)
+    if _.is_table(table) == false then return value end
+
+    for key in _.get_iterator(table) do
+        table[key] = value
+    end
+
+    return table
+end
+
 _.filter = function (table, subroutine, ...)
     local image = {}
 
