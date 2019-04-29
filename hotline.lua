@@ -24,4 +24,11 @@ _.is_table = function (value)
     return type(value) == 'table'
 end
 
+_.tabulate = function (value)
+    if _.is_nil(value) then return {}
+    elseif _.is_table(value) == false then return { value } end
+
+    return value
+end
+
 return _
