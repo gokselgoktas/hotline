@@ -8,6 +8,10 @@ _.aggregate = function (...)
     return ...
 end
 
+_.get_identity = function (...)
+    return ...
+end
+
 _.get_iterator = function (...)
     return pairs(_.tabulate(_.aggregate(...)))
 end
