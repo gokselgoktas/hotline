@@ -1,5 +1,9 @@
 local _ = {}
 
+_.is_function = function (value)
+    return type(value) == 'function'
+end
+
 _.is_nil = function (value)
     return value == nil
 end
