@@ -91,6 +91,10 @@ _.map = function (table, subroutine, ...)
     return image
 end
 
+_.multiply = function (multiplier, multiplicand)
+    return multiplier * multiplicand
+end
+
 _.reduce = function (table, subroutine, seed, ...)
     local accumulator = seed
 
