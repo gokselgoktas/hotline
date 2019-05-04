@@ -102,6 +102,10 @@ _.reduce = function (table, subroutine, seed, ...)
     return accumulator
 end
 
+_.subtract = function (minuend, subtrahend)
+    return minuend - subtrahend
+end
+
 _.tabulate = function (value)
     if _.is_nil(value) then return {}
     elseif _.is_table(value) == false then return { value } end
