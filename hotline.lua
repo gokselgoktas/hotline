@@ -87,6 +87,17 @@ _.map = function (table, subroutine, ...)
     return image
 end
 
+_.reduce = function (table, subroutine, seed, ...)
+    local accumulator = seed
+
+    for key, value in _.get_iterator(table) do
+        if _.is_nil(accumulator) == true then accumulator = value
+        else accumulator = _.apply(subroutine, accumulator, value, key, ...) end
+    end
+
+    return accumulator
+end
+
 _.tabulate = function (value)
     if _.is_nil(value) then return {}
     elseif _.is_table(value) == false then return { value } end
