@@ -105,4 +105,12 @@ _.tabulate = function (value)
     return value
 end
 
+_.test = function (table, subroutine, ...)
+    for key, value in _.get_iterator(table) do
+        if _.apply(subroutine, value, key, ...) == false then return false end
+    end
+
+    return true
+end
+
 return _
