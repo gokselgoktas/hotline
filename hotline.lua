@@ -1,5 +1,9 @@
 local _ = {}
 
+_.add = function (augend, addend)
+    return augend + addend
+end
+
 _.aggregate = function (...)
     if select('#', ...) >= 2 then
         return { ... }
