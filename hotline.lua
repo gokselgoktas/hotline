@@ -112,6 +112,10 @@ _.multiply = function (multiplier, multiplicand)
     return multiplier * multiplicand
 end
 
+_.negate = function (value)
+    return -value
+end
+
 _.reduce = function (table, subroutine, seed, ...)
     local accumulator = seed
 
