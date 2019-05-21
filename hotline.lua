@@ -19,6 +19,16 @@ _.apply = function (subroutine, ...)
     return subroutine(...)
 end
 
+_.clear = function (table)
+    if _.is_table(table) == false then return nil end
+
+    for key in _.get_iterator(table) do
+        table[key] = nil
+    end
+
+    return table
+end
+
 _.count = function (table)
     return _.reduce(table, function (accumulator) return accumulator + 1 end, 0)
 end
