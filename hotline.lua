@@ -19,6 +19,10 @@ _.apply = function (subroutine, ...)
     return subroutine(...)
 end
 
+_.count = function (table)
+    return _.reduce(table, function (accumulator) return accumulator + 1 end, 0)
+end
+
 _.discard = function (...)
     return nil
 end
