@@ -31,6 +31,10 @@ _.divide = function (dividend, divisor)
     return dividend / divisor
 end
 
+_.exponentiate = function (factor, exponent)
+    return factor ^ exponent
+end
+
 _.fill = function (table, value)
     if _.is_table(table) == false then return value end
 
