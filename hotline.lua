@@ -81,6 +81,21 @@ _.filter = function (table, subroutine, ...)
     return image
 end
 
+_.generate = function (count, subroutine, ...)
+    if _.is_number(count) == false then return nil end
+
+    local image = {}
+
+    for index = 1, count do
+        value, key = _.apply(subroutine, index, ...)
+
+        key = key or index
+        image[key] = value
+    end
+
+    return image
+end
+
 _.get_identity = function (...)
     return ...
 end
