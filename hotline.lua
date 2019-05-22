@@ -29,6 +29,22 @@ _.clear = function (table)
     return table
 end
 
+_.clone = function (table, cache)
+    if _.is_table(table) == false then return table end
+    if _.is_nil(cache) == false and _.is_nil(cache[table]) == false then return cache[table] end
+
+    local clone = setmetatable({}, getmetatable(table))
+
+    local cache = cache or {}
+    cache[table] = clone
+
+    for key, value in _.get_iterator(table) do
+        clone[_.clone(key, cache)] = _.clone(value, cache)
+    end
+
+    return clone
+end
+
 _.count = function (table)
     return _.reduce(table, function (accumulator) return accumulator + 1 end, 0)
 end
