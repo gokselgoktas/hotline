@@ -133,6 +133,10 @@ _.is_table = function (value)
     return type(value) == 'table'
 end
 
+_.is_userdata = function (value)
+    return type(value) == 'userdata'
+end
+
 _.iterate = function (table, subroutine, ...)
     for key, value in _.get_iterator(table) do
         _.apply(subroutine, value, key, ...)
