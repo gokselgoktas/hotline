@@ -133,6 +133,10 @@ _.is_table = function (value)
     return type(value) == 'table'
 end
 
+_.is_thread = function (value)
+    return type(value) == 'thread'
+end
+
 _.is_userdata = function (value)
     return type(value) == 'userdata'
 end
