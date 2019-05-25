@@ -109,6 +109,9 @@ _.get_sign = function (number)
     return number == 0 and 0 or (number > 0 and 1 or -1)
 end
 
+_.ignore = function (...)
+end
+
 _.is_boolean = function (value)
     return type(value) == 'boolean'
 end
