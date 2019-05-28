@@ -128,6 +128,10 @@ _.is_function = function (value)
     return type(value) == 'function'
 end
 
+_.is_greater_than = function (left_hand_side, right_hand_side)
+    return left_hand_side > right_hand_side
+end
+
 _.is_less_than = function (left_hand_side, right_hand_side)
     return left_hand_side < right_hand_side
 end
