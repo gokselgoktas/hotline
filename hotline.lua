@@ -104,6 +104,10 @@ _.get_iterator = function (...)
     return pairs(_.tabulate(_.aggregate(...)))
 end
 
+_.get_sequential_iterator = function (...)
+    return ipairs(_.tabulate(_.aggregate(...)))
+end
+
 _.get_sign = function (number)
     if _.is_number(number) == false then return nil end
     return number == 0 and 0 or (number > 0 and 1 or -1)
