@@ -120,6 +120,10 @@ _.is_boolean = function (value)
     return type(value) == 'boolean'
 end
 
+_.is_equal_to = function (left_hand_side, right_hand_side)
+    return left_hand_side == right_hand_side
+end
+
 _.is_function = function (value)
     return type(value) == 'function'
 end
