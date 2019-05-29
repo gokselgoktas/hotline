@@ -174,6 +174,11 @@ _.is_boolean = function (value)
     return type(value) == 'boolean'
 end
 
+_.is_empty = function (table)
+    if _.is_nil(table) == true then return true end
+    return _.is_table(table) == true and next(table) == nil
+end
+
 _.is_equal_to = function (left_hand_side, right_hand_side)
     return left_hand_side == right_hand_side
 end
