@@ -19,6 +19,22 @@ _.apply = function (subroutine, ...)
     return subroutine(...)
 end
 
+_.bind = function (subroutine, ...)
+    local subroutine = subroutine or _.discard
+    if _.is_function(subroutine) == false then return _.discard end
+
+    local bound_arguments = _.tabulate(_.aggregate(...))
+
+    return function (...)
+        local arguments = _.clone(bound_arguments)
+
+        _.iterate(_.tabulate(_.aggregate(...)),
+            function (value) table.insert(arguments, value) end)
+
+        return _.apply(subroutine, table.unpack(arguments))
+    end
+end
+
 _.clear = function (table)
     if _.is_table(table) == false then return nil end
 
