@@ -61,6 +61,23 @@ _.clone = function (table, cache)
     return clone
 end
 
+_.cluster = function (table, subroutine, ...)
+    if _.is_function(subroutine) == false then return {} end
+
+    local image = {}
+
+    for key, value in _.get_iterator(table) do
+        local cluster = _.apply(subroutine, value, key, ...)
+
+        if _.is_nil(cluster) == false then
+            image[cluster] = image[cluster] or {}
+            image[cluster][key] = value
+        end
+    end
+
+    return image
+end
+
 _.count = function (table)
     return _.reduce(table, function (accumulator) return accumulator + 1 end, 0)
 end
