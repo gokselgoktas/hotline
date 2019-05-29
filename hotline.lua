@@ -182,6 +182,19 @@ _.iterate = function (table, subroutine, ...)
     end
 end
 
+_.locate = function (table, value, ...)
+    if _.is_table(table) == false then return nil end
+
+    local predicate = _.is_function(value) == true and value or
+        _.bind(_.is_equal_to, value)
+
+    for key, value in _.get_iterator(table) do
+        if predicate(value, ...) == true then return key end
+    end
+
+    return nil
+end
+
 _.map = function (table, subroutine, ...)
     local image = {}
 
