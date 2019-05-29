@@ -67,10 +67,12 @@ _.cluster = function (table, subroutine, ...)
     local image = {}
 
     for key, value in _.get_iterator(table) do
-        local cluster = _.apply(subroutine, value, key, ...)
+        cluster, key = _.apply(subroutine, value, key, ...)
 
         if _.is_nil(cluster) == false then
             image[cluster] = image[cluster] or {}
+
+            key = _.is_nil(key) == true and #image[cluster] + 1 or key
             image[cluster][key] = value
         end
     end
@@ -118,9 +120,16 @@ end
 
 _.filter = function (table, subroutine, ...)
     local image = {}
+    local index = 1
 
     for key, value in _.get_iterator(table) do
-        if _.apply(subroutine, value, key, ...) == true then image[key] = value end
+        is_accepted, key = _.apply(subroutine, value, key, ...)
+        key = _.is_nil(key) == true and index or key
+
+        if is_accepted == true then
+            image[key] = value
+            index = index + 1
+        end
     end
 
     return image
@@ -226,9 +235,14 @@ end
 
 _.map = function (table, subroutine, ...)
     local image = {}
+    local index = 1
 
     for key, value in _.get_iterator(table) do
-        image[key] = _.apply(subroutine, value, key, ...)
+        value, key = _.apply(subroutine, value, key, ...)
+        key = _.is_nil(key) == true and index or key
+
+        image[key] = value
+        index = index + 1
     end
 
     return image
