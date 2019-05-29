@@ -78,6 +78,18 @@ _.cluster = function (table, subroutine, ...)
     return image
 end
 
+_.convert_to_sequence = function (table)
+    if _.is_table(table) == false then return table end
+
+    local image = {}
+
+    for key, value in _.get_iterator(table) do
+        image[#image + 1] = _.convert_to_sequence(value)
+    end
+
+    return image
+end
+
 _.count = function (table)
     return _.reduce(table, function (accumulator) return accumulator + 1 end, 0)
 end
