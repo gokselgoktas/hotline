@@ -6,7 +6,7 @@ end
 
 _.aggregate = function (...)
     if select('#', ...) >= 2 then
-        return { ... }
+        return _.pack(...)
     end
 
     return ...
@@ -259,6 +259,10 @@ end
 
 _.negate = function (value)
     return -value
+end
+
+_.pack = function (...)
+    return { ... }
 end
 
 _.reduce = function (table, subroutine, seed, ...)
