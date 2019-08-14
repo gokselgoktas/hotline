@@ -280,6 +280,10 @@ _.reduce = function (table, subroutine, seed, ...)
     return accumulator
 end
 
+_.saturate = function (value)
+    return _.clamp(value, 0, 1)
+end
+
 _.subtract = function (minuend, subtrahend)
     return minuend - subtrahend
 end
