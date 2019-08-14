@@ -174,6 +174,10 @@ end
 _.ignore = function (...)
 end
 
+_.interpolate = function (from, to, weight)
+    return from + (to - from) * _.saturate(weight)
+end
+
 _.is_boolean = function (value)
     return type(value) == 'boolean'
 end
