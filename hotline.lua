@@ -35,6 +35,10 @@ _.bind = function (subroutine, ...)
     end
 end
 
+_.clamp = function (value, minimum, maximum)
+    return value < minimum and minimum or (value > maximum and maximum or value)
+end
+
 _.clear = function (table)
     if _.is_table(table) == false then return nil end
 
