@@ -310,4 +310,10 @@ _.test = function (table, subroutine, ...)
     return true
 end
 
+_.transform = function (table, subroutine, ...)
+    for key, value in _.get_iterator(table) do
+        table[key] = _.apply(subroutine, value, key, ...)
+    end
+end
+
 return _
