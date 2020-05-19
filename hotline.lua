@@ -87,6 +87,11 @@ _.cluster = function (table, subroutine, ...)
     return image
 end
 
+_.concatenate = function (accumulator, string)
+    if _.is_string(accumulator) == false or _.is_string(string) == false then return nil end
+    return accumulator .. string
+end
+
 _.convert_to_sequence = function (table)
     if _.is_table(table) == false then return table end
 
