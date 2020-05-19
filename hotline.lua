@@ -191,7 +191,9 @@ _.is_boolean = function (value)
 end
 
 _.is_empty = function (table)
-    if _.is_nil(table) == true then return true end
+    if _.is_nil(table) == true then return true
+    elseif _.is_string(table) == true then return table == '' end
+
     return _.is_table(table) == true and next(table) == nil
 end
 
