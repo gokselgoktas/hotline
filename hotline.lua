@@ -108,6 +108,10 @@ _.count = function (table)
     return _.reduce(table, _.increment, 0)
 end
 
+_.decrement = function (value)
+    return value - 1
+end
+
 _.discard = function (...)
     return nil
 end
