@@ -105,7 +105,7 @@ _.convert_to_sequence = function (table)
 end
 
 _.count = function (table)
-    return _.reduce(table, function (accumulator) return accumulator + 1 end, 0)
+    return _.reduce(table, _.increment, 0)
 end
 
 _.discard = function (...)
@@ -180,6 +180,10 @@ _.get_sign = function (number)
 end
 
 _.ignore = function (...)
+end
+
+_.increment = function (value)
+    return value + 1
 end
 
 _.interpolate = function (from, to, weight)
