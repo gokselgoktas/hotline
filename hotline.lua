@@ -183,6 +183,11 @@ _.get_sign = function (number)
     return number == 0 and 0 or (number > 0 and 1 or -1)
 end
 
+_.has_metatable = function (table)
+    if _.is_table(table) == false then return false end
+    return _.is_nil(getmetatable(table)) == false
+end
+
 _.ignore = function (...)
 end
 
